@@ -1,2 +1,2 @@
-theme_vintage
-=============
+theme_vintage1
+==============

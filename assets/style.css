@@ -433,7 +433,7 @@ form .hint_area {
 }
 
 #header .cart_status {
-    float: left;
+    float: right;
     width: 135px;
     height: 47px;
     overflow: hidden;
