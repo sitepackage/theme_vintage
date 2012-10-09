@@ -1253,6 +1253,29 @@ form .hint_area {
     border: 1px solid #eee;
     background: #fff no-repeat center center;
 }
+#collection .buy a{
+    width:100%;
+    text-align:center;
+}
+#collection .buy a .view{
+    display:block;
+    padding:0.1px 0.2px;
+    background-color:#a3792d;
+    color:#ffffff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -border-radius: 3px;
+    border-radius: 3px;    
+}
+#collection .buy a:hover .view{
+    padding:0.1px 0.2px;
+    background-color:#d7c9af;
+    color:#6e4f18;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -border-radius: 3px;
+    border-radius: 3px;    
+}
 #collection .title {
     height: 42px;
     overflow: hidden;
@@ -1268,6 +1291,7 @@ form .hint_area {
     margin: 1px 0 0 0;
 }
 #collection .buy {
+    width: 35px;  
     float: right;
 }
 #collection .buy a {
