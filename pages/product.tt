@@ -3,10 +3,23 @@
   <div class="padding">
     <div class="fancybox image">
       <div>
-        <a href="[% product.featured_image.src | image_uri ('original') %]">
+        <a rel="product_images" href="[% product.featured_image.src | image_uri ('original') %]">
           <span class="featured_image" style="background-image: url('[% product.featured_image.src | image_uri ('medium') %]')"></span>
         </a>
       </div>
+      [%- if product.images.size %]
+      <div class="fancybox extra_images">
+        <ul>
+          [%- foreach image in product.images %]
+          <li [% 'class="last"' if loop.count % 4 == 0 %]>
+            <a rel="product_images" href="[% image.src | image_uri ('original') %]">
+              <span style="background-image: url('[% image.src | image_uri ('tiny') %]')"></span>
+            </a>
+          </li>
+          [%- end %]
+        </ul>
+      </div>
+      [%- end %]          
     </div>
 
     <div class="details">
@@ -58,21 +71,6 @@
       </form>
     </div>
     <div class="clear"></div>
-
-    [%- if product.images.size %]
-    <div class="fancybox extra_images">
-      <ul>
-        [%- foreach image in product.images %]
-        <li>
-          <a href="[% image.src | image_uri ('original') %]">
-            <span style="background-image: url('[% image.src | image_uri ('thumb') %]')"></span>
-          </a>
-        </li>
-        [%- end %]
-      </ul>
-    </div>
-    <div class="clear"></div>
-    [%- end %]
 
     [%- if product.content %]
     <div class="description">

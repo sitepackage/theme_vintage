@@ -230,21 +230,20 @@
           [%- end %]          
           
           <div class="sidebar sep widgets"></div>
-
-          <div class="banners_wrapper">
+          <div class="banner_wrapper">
             <div class="sidebar">
               [% '<span class="banners shipping_list"></span>' | link_to settings.shipping_list_uri if settings.shipping_list_uri %]
               [% '<span class="banners contact"></span>' | link_to settings.contact_uri if settings.contact_uri %]
               [% '<span class="banners tracking"></span>' | link_to ('http://track.thailandpost.co.th', 'Thailand Post Track &amp; Trace', '_blank') if settings.thps_track_enabled %]
             </div>
-
-            [%- if linklists.sidebar.links.size %]
-            [%- foreach link in linklists.sidebar.links %]
-            [%- next unless link.featured_image.src %]
-            <span class="sidebar">[% link.featured_image.src | image_uri | image_tag | link_to (link.uri, link.name, link.target) %]</span>
+            [%- if linklists.${settings.linklist_banner}.links.size %]
+            [%- links = linklists.${settings.linklist_banner}.links %]
+              [%- foreach link in links %]
+                [%- link.name = link.name | html %]
+                <span class="sidebar">[% link.featured_image.src | image_uri | image_tag | link_to (link.uri, link.name, link.target) %]</span>
+              [%- end %]               
             [%- end %]
-            [%- end %]
-          </div>
+          </div> 
 
           [%- if settings.facebook_uri && settings.like_box_enabled %]
           <div class="sidebar facebook_like_box">
